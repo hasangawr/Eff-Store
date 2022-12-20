@@ -1,3 +1,3 @@
-# Super-Shop
+# Shop-In
 
 Online store management system
