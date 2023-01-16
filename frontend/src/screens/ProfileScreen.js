@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -53,6 +53,7 @@ const ProfileScreen = () => {
     }
 
   return (
+    <Container className='py-3'>
         <Row>
             <Col md={3}>
                 <h2>User Profile</h2>
@@ -90,6 +91,7 @@ const ProfileScreen = () => {
                 <h2>My Orders</h2>
             </Col>
         </Row>
+    </Container>
   )
 }
 

@@ -14,8 +14,8 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <main className='py-3'>
-        <Container>
+      <main>
+        <>
           <Routes>
             <Route path='/login' element={<LoginScreen />} />
             <Route path='/register' element={<RegisterScreen />} />
@@ -25,7 +25,7 @@ const App = () => {
             <Route path='/cart' element={<CartScreen />} />
             <Route path='/' element={<HomeScreen />} exact />
           </Routes>
-        </Container>
+        </>
       </main>
       <Footer />
     </Router>

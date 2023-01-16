@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, NavDropdown, Form, InputGroup, Button, Row, Col } from 'react-bootstrap'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -16,16 +16,22 @@ const Header = () => {
 
   return (
     <header>
-        <Navbar bg="primary" variant='dark' expand="lg" collapseOnSelect >
-        <Container>
+        <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect style={{"paddingTop": "0.5rem", "paddingBottom": "0.5rem"}}>
+        <Container style={{"margin": "0", "maxWidth": "100%"}}>
           <LinkContainer to='/'>
-            <Navbar.Brand>SuperShop</Navbar.Brand>
+            <Navbar.Brand>EffStore</Navbar.Brand>
           </LinkContainer>
+
+          <Form.Group class="d-flex">
+            <Form.Control class="form-control me-sm-2" type="search" placeholder="Search in EffStore"></Form.Control>
+            <Button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</Button>
+          </Form.Group>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" style={{justifyContent:'flex-end'}}>
+        <Navbar.Collapse id="basic-navbar-nav" >
           <Nav className="ml-auto" >
             <LinkContainer to='/cart'>
-              <Nav.Link><i className='fas fa-shopping-cart' style={{padding: '5px'}}></i>Cart</Nav.Link>
+              <Nav.Link><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
             </LinkContainer>
             {userInfo ? (
               <NavDropdown title={userInfo.name} id='username'>
@@ -38,7 +44,7 @@ const Header = () => {
               </NavDropdown>
             ) : (
               <LinkContainer to='/login'>
-              <Nav.Link><i className='fas fa-user' style={{padding: '5px'}}></i>Sign In</Nav.Link>
+              <Nav.Link><i className='fas fa-user'></i>Sign In</Nav.Link>
             </LinkContainer>
             )}
           </Nav>

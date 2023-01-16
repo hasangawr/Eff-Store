@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, FormControl} from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, FormControl, Container} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader'
@@ -27,7 +27,7 @@ const ProductScreen = () => {
     }
 
   return (
-    <>
+    <Container className='py-3'>
         <Link className='btn btn-light my-3' to='/'>Go Back</Link>
         {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
             <Row>
@@ -92,7 +92,7 @@ const ProductScreen = () => {
                         
                         <ListGroup.Item>
                             <Row>
-                                <Button className='btn btn-lg btn-primary' onClick={addToCartHandler} type='button' disabled={product.countInStock === 0}>Add to Cart</Button>
+                                <Button className='btn-block' onClick={addToCartHandler} type='button' disabled={product.countInStock === 0}>Add to Cart</Button>
                             </Row>
                         </ListGroup.Item>
                     </ListGroup>
@@ -101,7 +101,7 @@ const ProductScreen = () => {
         </Row>
         )
         }
-    </>
+    </Container>
   )
 }
 

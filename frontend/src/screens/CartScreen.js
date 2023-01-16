@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup, Image, Form, Button, Card, ListGroupItem, FormControl } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Button, Card, ListGroupItem, FormControl, Container } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
@@ -32,7 +32,8 @@ const CartScreen = ({ location }) => {
   }
 
   return (
-    <Row>
+    <Container className='py-3'>
+      <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
@@ -83,7 +84,7 @@ const CartScreen = ({ location }) => {
               ${cartItems.reduce((acc, item) => acc + item.qty*item.price, 0).toFixed(2)}
             </ListGroupItem>
             <ListGroupItem>
-              <Button type='button' className='btn btn-lg btn-primary btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
+              <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
                 Proceed To Checkout
               </Button>
             </ListGroupItem>
@@ -91,6 +92,7 @@ const CartScreen = ({ location }) => {
         </Card>
       </Col>
     </Row>
+    </Container>
   )
 }
 
