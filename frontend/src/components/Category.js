@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { Card, CardImg } from 'react-bootstrap'
 import Rating from './Rating'
 
-const Product = ({product}) => {
+const Category = ({product}) => {
   return (
     <Card className='my-3 p-3 rounded'>
         <Link to={`/product/${product._id}`}>
@@ -16,17 +16,9 @@ const Product = ({product}) => {
                     <strong>{product.name}</strong>
                 </Card.Title>
             </Link>
-
-            <Card.Text as='div'>
-                <Rating value={product.rating} text={`${product.numReviews} reviews`}/>
-            </Card.Text>
-
-            <Card.Text as='h3' className='price'>
-                Rs. {product.price}
-            </Card.Text>
         </Card.Body>
     </Card>
   )
 }
 
-export default Product
+export default Category

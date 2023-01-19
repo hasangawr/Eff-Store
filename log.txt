@@ -1,0 +1,256 @@
+commit b7036ea482c83681c4173501222bf28f97bbc726
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Jan 16 13:00:55 2023 +0530
+
+    Create Hero section
+
+commit b63a551d75abdd467a8e5df47623a0f58ecba317
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 13:39:28 2023 +0530
+
+    Implement update profile functionality
+
+commit 9d185d92e7cd8b423a27f4e91fd3a1e2d75a2e6b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 12:20:09 2023 +0530
+
+    Create profile screen & get user details
+
+commit 407c84f7206cf8c51b7f0829421b48a1cd650db5
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 10:33:58 2023 +0530
+
+    Create update profile endpoint
+
+commit c1c20fd1b98a86bcaf60057ff7da292f1f5d4121
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 09:57:19 2023 +0530
+
+    Create user register reducer, action & screen
+
+commit 2a8f31546ed0a643135543877036a46b4bcb68eb
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 08:42:48 2023 +0530
+
+    Show user in navbar & logout
+
+commit 2287b48d28088552c6c218f4763d573e132c7840
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 14 08:03:25 2023 +0530
+
+    Create login screen & login functionality
+
+commit 26b78e5da0131e662e1752df99086741824cd7d6
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Jan 13 14:36:57 2023 +0530
+
+    Create user login reducer & action
+
+commit 9bb81f6588732ad17e898a08ebf508d2a9dbc2ae
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Jan 13 13:11:54 2023 +0530
+
+    Implement user registration
+
+commit 2fc841d8f082fe618faac9018fb4c5eac0e2b97d
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 12 15:05:57 2023 +0530
+
+    Create authentication middleware
+
+commit b003c286917f68106875ecd1e5035ed88059ed59
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 12 13:45:22 2023 +0530
+
+    Generate json web token
+
+commit 516f24772462e4f61f390eca5fed7815f37bff20
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 12 13:12:10 2023 +0530
+
+    Create user auth endpoint
+
+commit 53a4cc0a3666625d74dbd76aad9fd0743b758528
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 12 08:32:21 2023 +0530
+
+    Create product controller
+
+commit d1c11f304570ec0a7f98b7b866404e5d89f9c490
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 12 08:08:32 2023 +0530
+
+    Implement shopping cart screen & functionality
+
+commit b5cc6a2f307474c719a9bbd6fd39318510ae74a5
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Jan 10 15:06:48 2023 +0530
+
+    Implement add to cart functionality
+
+commit ab8a56cb3df249051c9266a57c7433984608ec04
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Jan 10 07:17:57 2023 +0530
+
+    Create cart reducer & cart action
+
+commit fef90055f72fc2f79ca625f31809fea30e1f4979
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Jan 10 05:39:36 2023 +0530
+
+    Create select qty & add to cart btn
+
+commit 9420148f6b5a5d3f2290bb087a1e0bbb893e5095
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 7 14:37:21 2023 +0530
+
+    Product details reducer & action
+
+commit 4adbf298ba3ef030b0efa0949ff493c57d68d94a
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 7 10:39:15 2023 +0530
+
+    Create Message and Loader components
+
+commit f0283d533aacb631165e6c9cee3a3af4079f933b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 7 10:14:50 2023 +0530
+
+    ProductList reducer, action & HomeScreen
+    
+    Load product list onto HomeScreen using redux state
+
+commit ada2c398f0c109524c1aff77a7416b548a77f7d6
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Jan 7 07:43:50 2023 +0530
+
+    Create redux store
+
+commit 216ea34d6f9f5904453595285200806ea58bea18
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Jan 6 14:50:22 2023 +0530
+
+    Create custom error handler middleware
+
+commit ec286efe6bd5d81802996e8c5397c4957d9d13b9
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Jan 6 11:57:57 2023 +0530
+
+    Create product routes
+    
+    Fetch products from database.
+    Used express-async-handler to manage route exceptions.
+
+commit 2f33797a44f43f13ca6e03bc260a7432d8bdacdc
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Jan 3 11:40:52 2023 +0530
+
+    Implement data seeder script
+    
+    Loaded some sample data to the database using data seeder script
+
+commit 370c2af46ac7e325846b539662ed370a864b4612
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Jan 2 06:11:06 2023 +0530
+
+    Model data
+
+commit ebcf196dae5871a394eeff598223f57dcd4c8b69
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Jan 1 10:17:51 2023 +0530
+
+    Connect to database
+
+commit 63d34aaa724a065e33c3fea93986ec7338009856
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Dec 30 06:00:35 2022 +0530
+
+    Setup environment variables using dotenv
+
+commit 2f416fa11bf949f62aaf618757f00929a9aa3917
+Author: hasangawr <118647441+hasangawr@users.noreply.github.com>
+Date:   Tue Dec 20 09:25:11 2022 +0530
+
+    Update README.md
+
+commit eaa7f5417fb6dcb0b02e8a6a72a1d4086bd1ae48
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Dec 20 09:20:43 2022 +0530
+
+    Fetch products from backend
+    
+    Fetching products from the products.js file in backend
+
+commit ab01634203a4c37efb661a51bc585bbeb1db4dfb
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Dec 15 08:54:30 2022 +0530
+
+    Setup backend with express
+
+commit 624521061438aa60ffdc90aaf35d900521f4344a
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Dec 15 08:20:56 2022 +0530
+
+    Create product screen
+
+commit bed6c5bdab7dc395685b9b49773309ca76210bbf
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Dec 15 06:32:25 2022 +0530
+
+    Implement react router
+
+commit 4c0fb4d0579fded59cc1be73e9c650945eebcd46
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Dec 13 08:26:34 2022 +0530
+
+    Create Rating component
+
+commit 42c07878d4a2f06fddc03bd1fdfdfd9ebe03382d
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Dec 13 06:16:43 2022 +0530
+
+    Create Product component
+    
+    Loaded Product components on HomeScreen with some dummy products
+
+commit 811b64e8097c308df6e837cc76757bc12ebe8489
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Dec 13 05:50:09 2022 +0530
+
+    Create HomeScreen
+    
+    Created HomeScreen and loaded some dummy products
+
+commit 4765ce238bed33368a041ae1c565fccbc631dea8
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Dec 13 05:00:14 2022 +0530
+
+    Create header and footer
+    
+    Bootstrap theme changed to 'Cosmo'
+
+commit 6664032d63d5ee627b9fa79e1a619048601795bc
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Dec 12 08:31:41 2022 +0530
+
+    Setup react-bootstrap
+    
+    Using React-Bootstrap with a custom theme 'Minty' from 'bootswatch.com'
+
+commit 77315ec0c7dd7d39f84d86bbb5885c338cc96954
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Dec 12 07:17:11 2022 +0530
+
+    Setup react
+
+commit 8f6eadc4c18690b6494f8273c98cf961ee0637c2
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Dec 12 06:38:20 2022 +0530
+
+    Git test
+
+commit 75b752e403b34c20ef09a105c9c8bcee695a4205
+Author: hasangawr <118647441+hasangawr@users.noreply.github.com>
+Date:   Mon Dec 12 05:29:04 2022 +0530
+
+    Initial commit

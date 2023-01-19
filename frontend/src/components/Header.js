@@ -19,7 +19,7 @@ const Header = () => {
         <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect style={{"paddingTop": "0.5rem", "paddingBottom": "0.5rem"}}>
         <Container style={{"margin": "0", "maxWidth": "100%"}}>
           <LinkContainer to='/'>
-            <Navbar.Brand>EffStore</Navbar.Brand>
+            <Navbar.Brand><span className='green-txt'>Eff</span>Store</Navbar.Brand>
           </LinkContainer>
 
           <Form.Group class="d-flex">
