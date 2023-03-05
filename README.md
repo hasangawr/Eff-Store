@@ -1,3 +1,3 @@
-# Shop-In
+# Eff-Store
 
 Online store management system
