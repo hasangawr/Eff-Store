@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container, NavDropdown, Form, Button } from 'react-bootstrap'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -22,13 +23,11 @@ const Header = () => {
             <Navbar.Brand><span className='green-txt'>Eff</span>Store</Navbar.Brand>
           </LinkContainer>
 
-          <Form.Group class="d-flex">
-            <Form.Control class="form-control me-sm-2" type="search" placeholder="Search in EffStore"></Form.Control>
-            <Button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</Button>
-          </Form.Group>
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" >
+
+          <SearchBox />
+
           <Nav className="ml-auto" >
             <LinkContainer to='/cart'>
               <Nav.Link><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
