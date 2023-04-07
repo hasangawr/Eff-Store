@@ -30,7 +30,7 @@ const HomeScreen = () => {
         {!keyword && (pageNumber === 1) && <Hero />}
         <Container>
           {keyword && <Link to='/' className='btn btn-light'>Go Back</Link>}
-        <h1>Products</h1>
+        <h1 id='products'>Products</h1>
         {loading ? (
           <Loader />
         ) : error ? (

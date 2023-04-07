@@ -1,6 +1,15 @@
 import asyncHandler from 'express-async-handler';
 import Store from '../models/storeModel.js';
 
+// @desc    Fetch a store
+// @route   GET /api/stores/:id
+// @access  public
+const getStoreById = asyncHandler(async (req, res) => {
+    const store = await Store.findById(req.params.id)
+
+    res.json(store)
+})
+
 // @desc    Create a store
 // @route   POST /api/stores/
 // @access  Private
@@ -35,4 +44,4 @@ const updateStore = asyncHandler(async (req, res) => {
     res.json(updatedStore)
 })
 
-export { createStore, updateStore }
+export { createStore, updateStore, getStoreById }

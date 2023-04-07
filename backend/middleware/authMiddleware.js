@@ -41,11 +41,6 @@ const admin = (req, res, next) => {
 const owner = asyncHandler( async(req, res, next) => {
     const store = await Store.findById(req.params.id)
 
-    let test = false
-    if(store.owner.equals(req.user._id)) {
-        test = true
-    }
-    console.log(test)
     if(store) {
         if(store.owner.equals(req.user._id)) {
             next()
