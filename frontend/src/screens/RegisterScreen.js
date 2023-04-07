@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { register } from '../actions/userActions'
 import FormContainer from '../components/FormContainer'
+import Meta from '../components/Meta'
 
 const RegisterScreen = () => {
     const [name, setName] = useState('')
@@ -40,6 +41,7 @@ const RegisterScreen = () => {
 
   return (
         <FormContainer>
+            <Meta title='Register' />
         <h1>Sign Up</h1>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}

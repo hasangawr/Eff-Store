@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
+import Meta from '../components/Meta'
 
 const OrderListScreen = () => {
     const dispatch = useDispatch()
@@ -28,6 +29,7 @@ const OrderListScreen = () => {
 
   return (
     <Container>
+        <Meta title='Orders' />
         <h1>Orders</h1>
         {loading ? <Loader /> :
          error ? <Message variant='danger'>{error}</Message> :

@@ -8,6 +8,7 @@ import Loader from '../components/Loader'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants'
+import Meta from '../components/Meta'
 
 const OrderScreen = () => {
     let { id } = useParams()
@@ -79,6 +80,7 @@ const OrderScreen = () => {
   return loading ? <Loader /> : 
     error ? <Message variant='danger'>{error}</Message> : 
     <Container>
+        <Meta title='Checkout' />
         <h1>Order {order._id}</h1>
         <Row>
             <Col md={8}>

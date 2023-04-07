@@ -8,6 +8,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Paginate from '../components/Paginate'
 import { listProducts } from '../actions/productActions'
+import Meta from '../components/Meta'
 
 const HomeScreen = () => {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ const HomeScreen = () => {
 
   return (
     <>
+        <Meta />
         {!keyword && (pageNumber === 1) && <Hero />}
         <Container>
         <h1>Products</h1>

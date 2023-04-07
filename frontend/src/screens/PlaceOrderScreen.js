@@ -5,6 +5,7 @@ import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { Link, useNavigate } from 'react-router-dom'
 import { createOrder } from '../actions/orderActions'
+import Meta from '../components/Meta'
 
 const PlaceOrderScreen = () => {
     const dispatch = useDispatch()
@@ -60,6 +61,7 @@ const PlaceOrderScreen = () => {
   return (
     <Container>
         <CheckoutSteps step1 step2 step3 step4 />
+        <Meta title='Place Order' />
         <Row>
             <Col md={8}>
                 <ListGroup variant='flush'>

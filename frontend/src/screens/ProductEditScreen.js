@@ -9,6 +9,7 @@ import { listProductDetails, updateProduct } from '../actions/productActions'
 import FormContainer from '../components/FormContainer'
 import { Link } from 'react-router-dom'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+import Meta from '../components/Meta'
 
 const ProductEditScreen = () => {
     const { id:productId } = useParams()
@@ -89,6 +90,7 @@ const ProductEditScreen = () => {
 
   return (
     <Container>
+        <Meta title='Edit Product' />
         <Link to='/admin/productlist' className='btn btn-light my-3'>
             Go Back
         </Link>

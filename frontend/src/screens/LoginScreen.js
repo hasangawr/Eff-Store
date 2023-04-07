@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { login } from '../actions/userActions'
 import FormContainer from '../components/FormContainer'
+import Meta from '../components/Meta'
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('')
@@ -35,6 +36,7 @@ const LoginScreen = () => {
   return (
         <FormContainer>
         <CheckoutSteps step1 />
+        <Meta title='Sign In' />
         <h1>Sign In</h1>
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}

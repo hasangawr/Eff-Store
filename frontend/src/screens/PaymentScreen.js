@@ -5,6 +5,7 @@ import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { savePaymentMethod } from '../actions/cartActions'
 import { useNavigate } from 'react-router-dom'
+import Meta from '../components/Meta'
 
 
 const PaymentScreen = () => {
@@ -30,6 +31,7 @@ const PaymentScreen = () => {
   return (
     <FormContainer>
         <CheckoutSteps step1 step2 step3 />
+        <Meta title='Payment' />
         <h1>Payment Method</h1>
         <Form onSubmit={submitHandler}>
             <Form.Group>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Button, Card, ListGroupItem, FormControl, Container } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import Meta from '../components/Meta'
 
 const CartScreen = ({ location }) => {
   let {id} = useParams()
@@ -33,6 +34,7 @@ const CartScreen = ({ location }) => {
 
   return (
     <Container className='py-3'>
+      <Meta title='Shopping Cart' />
       <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
