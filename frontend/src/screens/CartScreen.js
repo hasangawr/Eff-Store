@@ -8,6 +8,7 @@ import Meta from '../components/Meta'
 
 const CartScreen = ({ location }) => {
   let {id} = useParams()
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   let qty = searchParams.get('qty') ? Number(searchParams.get('qty')) : 1
 

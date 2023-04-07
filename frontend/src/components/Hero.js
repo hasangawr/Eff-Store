@@ -15,9 +15,18 @@ const Hero = () => {
               Shop now and get fast, reliable delivery straight to your doorstep. <br />
               Shopping has never been more <span className='green-txt'>effortless.</span> <br />
             </p>
-            <Button variant="primary" href="#catalog">
-              Browse Products
-            </Button>
+            <Row>
+              <Col xs={4}>
+                <Button variant="primary" href="#catalog">
+                  Browse Products
+                </Button>
+              </Col>
+              <Col xs={4}>
+                <Button variant="primary" href="">
+                  Create Your Store
+                </Button>
+              </Col>
+            </Row>
           </div>
         </Col>
       </Row>
