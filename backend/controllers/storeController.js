@@ -18,4 +18,21 @@ const createStore = asyncHandler(async (req, res) => {
     res.status(201).json(createdStore)
 })
 
-export { createStore }
+// @desc    Update a store
+// @route   PUT /api/stores/:id
+// @access  Private
+const updateStore = asyncHandler(async (req, res) => {
+    const {name, type, image, description, numReviews} = req.body
+
+    const store = await Store.findById(req.params.id)
+
+    store.name = name
+    store.type = type
+    store.image = image
+    store.description = description
+
+    const updatedStore = await store.save()
+    res.json(updatedStore)
+})
+
+export { createStore, updateStore }

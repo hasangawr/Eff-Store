@@ -1,6 +1,7 @@
 import Jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler"
 import User from "../models/userModel.js";
+import Store from "../models/storeModel.js";
 
 const protect = asyncHandler(async (req, res, next) => {
     let token
@@ -37,4 +38,26 @@ const admin = (req, res, next) => {
     }
 }
 
-export { protect, admin }
+const owner = asyncHandler( async(req, res, next) => {
+    const store = await Store.findById(req.params.id)
+
+    let test = false
+    if(store.owner.equals(req.user._id)) {
+        test = true
+    }
+    console.log(test)
+    if(store) {
+        if(store.owner.equals(req.user._id)) {
+            next()
+        } else {
+            res.status(401)
+            throw new Error('Not authorized as the owner')
+        }
+
+    } else {
+        res.status(404)
+        throw new Error('Store not found')
+    }
+})
+
+export { protect, admin, owner }
