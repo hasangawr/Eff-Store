@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import {Row, Col, Container} from 'react-bootstrap'
 import Hero from '../components/Hero'
 import Product from '../components/Product'
@@ -29,6 +29,7 @@ const HomeScreen = () => {
         <Meta />
         {!keyword && (pageNumber === 1) && <Hero />}
         <Container>
+          {keyword && <Link to='/' className='btn btn-light'>Go Back</Link>}
         <h1>Products</h1>
         {loading ? (
           <Loader />
