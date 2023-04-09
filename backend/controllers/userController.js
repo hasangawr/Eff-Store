@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import User from "../models/userModel.js";
+import Store from '../models/storeModel.js';
 import generateToken from '../utils/generateToken.js';
 
 // @desc    Auth user & get token
@@ -16,6 +17,8 @@ const authUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            isOwner: user.isOwner,
+            stores: user.stores,
             token: generateToken(user._id)
         })
     } else {
@@ -49,6 +52,8 @@ const registerUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            isOwner: user.isOwner,
+            stores: user.stores,
             token: generateToken(user._id)
         })
     } else {
@@ -166,4 +171,20 @@ const updateUser = asyncHandler(async (req, res) => {
     }
 })
 
-export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers, deleteUser, getUserById, updateUser }
+// @desc    Get all stores of a user
+// @route   GET /api/users/stores
+// @access  Private/Owner
+const getStoresByUserId = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id)
+
+    if(user) {
+        const stores = await Store.find({_id: { $in: [...user.stores] }})
+        res.json(stores)
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
+    
+})
+
+export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers, deleteUser, getUserById, updateUser, getStoresByUserId }

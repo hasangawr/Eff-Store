@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import Store from '../models/storeModel.js';
+import User from '../models/userModel.js';
 
 // @desc    Fetch a store
 // @route   GET /api/stores/:id
@@ -24,12 +25,18 @@ const createStore = asyncHandler(async (req, res) => {
     })
 
     const createdStore = await store.save()
+
+    const user = await User.findById(req.user._id)
+    user.isOwner = true
+    user.stores.push(createdStore._id)
+    const updatedUser = await user.save()
+
     res.status(201).json(createdStore)
 })
 
 // @desc    Update a store
 // @route   PUT /api/stores/:id
-// @access  Private
+// @access  Private/Owner
 const updateStore = asyncHandler(async (req, res) => {
     const {name, type, image, description, numReviews} = req.body
 

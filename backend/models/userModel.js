@@ -19,7 +19,19 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
-    }
+    },
+    isOwner: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    stores: [
+        {       
+            type: mongoose.Schema.Types.ObjectId,
+            required: false,
+            ref: 'Store'
+        }
+    ]
 }, {
     timestamps: true
 })
