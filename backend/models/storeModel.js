@@ -23,6 +23,13 @@ const storeSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    products: [
+        {       
+            type: mongoose.Schema.Types.ObjectId,
+            required: false,
+            ref: 'Product'
+        }
+    ],
     type: {
         type: String,
         required: true
