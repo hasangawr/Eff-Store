@@ -76,7 +76,7 @@ const Header = () => {
             {stores && (stores.length !== 0) &&(
               <NavDropdown title='MY STORES' id='storesmenu'>
                 {stores.map((store) => (
-                  <LinkContainer to={`/owner/stores/${store._id}`} >
+                  <LinkContainer to={`/stores/${store._id}`} >
                     <NavDropdown.Item>{store.name}</NavDropdown.Item>
                   </LinkContainer>
                 ))}
