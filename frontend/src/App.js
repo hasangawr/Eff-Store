@@ -26,7 +26,7 @@ const App = () => {
       <main>
         <>
           <Routes>
-            <Route path='/owner/store/:id/edit' element={<StoreEditScreen />} />
+            <Route path='/owner/stores/:id/edit' element={<StoreEditScreen />} />
             <Route path='/order/:id' element={<OrderScreen />} />
             <Route path='/place-order' element={<PlaceOrderScreen />} />
             <Route path='/payment' element={<PaymentScreen />} />

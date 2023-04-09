@@ -22,7 +22,7 @@ const Hero = () => {
     dispatch({ type: STORE_CREATE_RESET })
 
     if (successCreate) {
-      navigate(`/owner/store/${createdStore._id}/edit`)
+      navigate(`/owner/stores/${createdStore._id}/edit`)
     }
   }, [successCreate, navigate, dispatch, createdStore])
 

@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchBox from './SearchBox'
-import { logout } from '../actions/userActions'
-import { listStoreDetails } from '../actions/storeActions'
+import { logout, listUserStores } from '../actions/userActions'
+import { USER_STORES_RESET } from '../constants/userConstants'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -13,8 +13,17 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  const storeDetails = useSelector(state => state.storeDetails)
-  const { store } = storeDetails
+  const userStores = useSelector(state => state.userStores)
+  const { stores } = userStores
+
+  useEffect(() => {
+    if(userInfo) {
+      dispatch(listUserStores())
+    } else {
+      dispatch({type: USER_STORES_RESET})
+    }
+
+  }, [dispatch, userInfo])
 
   const logoutHandler = () => {
     dispatch(logout())
@@ -62,6 +71,15 @@ const Header = () => {
                 <LinkContainer to='/admin/orderlist'>
                   <NavDropdown.Item>Orders</NavDropdown.Item>
                 </LinkContainer>
+              </NavDropdown>
+            )}
+            {stores && (stores.length !== 0) &&(
+              <NavDropdown title='MY STORES' id='storesmenu'>
+                {stores.map((store) => (
+                  <LinkContainer to={`/owner/stores/${store._id}`} >
+                    <NavDropdown.Item>{store.name}</NavDropdown.Item>
+                  </LinkContainer>
+                ))}
               </NavDropdown>
             )}
           </Nav>
