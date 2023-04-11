@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import Store from '../models/storeModel.js';
 import User from '../models/userModel.js';
+import Product from '../models/productModel.js';
 
 // @desc    Fetch a store
 // @route   GET /api/stores/:id
@@ -8,7 +9,17 @@ import User from '../models/userModel.js';
 const getStoreById = asyncHandler(async (req, res) => {
     const store = await Store.findById(req.params.id)
 
-    res.json(store)
+    if (store) {
+        if (store.products.length !== 0) {
+            const productList = await Product.findById(...store.products)
+            res.json({store, productList})
+        } else {
+            res.json(store)
+        }
+    } else {
+        res.status(404)
+        throw new Error('Store not found')
+    }
 })
 
 // @desc    Create a store
