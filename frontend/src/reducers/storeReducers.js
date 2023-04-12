@@ -31,7 +31,7 @@ export const storeUpdateReducer = (state = { product: {} }, action) => {
     }
 }
 
-export const storeDetailsReducer = (state = { store: { reviews: [], products: [] } }, action) => {
+export const storeDetailsReducer = (state = { store: { productList: [] } }, action) => {
     switch (action.type) {
         case STORE_DETAILS_REQUEST:
             return { loading: true, ...state }

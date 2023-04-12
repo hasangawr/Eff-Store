@@ -11,8 +11,8 @@ const getStoreById = asyncHandler(async (req, res) => {
 
     if (store) {
         if (store.products.length !== 0) {
-            const productList = await Product.findById(...store.products)
-            res.json({store, productList})
+            const productList = await Product.find({'_id': { $in : [...store.products]}})
+            res.json({...store.toObject(), productList})
         } else {
             res.json(store)
         }

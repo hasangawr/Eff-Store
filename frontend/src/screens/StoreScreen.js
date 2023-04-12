@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Row, Col, Container} from 'react-bootstrap'
+import {Row, Col, Container, Button} from 'react-bootstrap'
 import Product from '../components/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -14,15 +14,21 @@ const HomeScreen = () => {
 
   const storeDetails = useSelector(state => state.storeDetails)
   const { loading, error, store } = storeDetails
+
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
   
   useEffect(() => {
     dispatch(listStoreDetails(id))
-  }, [dispatch, id])
+  }, [id, dispatch, userInfo])
 
+  const goToDashboardHandler = () => {
+    console.log('dashboard')
+  }
 
   return (
     <>
-        <Meta />
+        <Meta title={store && store.name}/>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -30,8 +36,26 @@ const HomeScreen = () => {
         ) : (
           <>
           <Container>
-            <h1 id='storeName'>{store.name}</h1>
-          
+            <Row className='align-items-center'>
+              <Col>
+                <h1 id='storeName'>{store.name}</h1>
+              </Col>
+              <Col className='text-right'>
+                {userInfo && userInfo.isOwner && userInfo.stores.includes(id) &&
+                  <Button className='my-3' onClick={goToDashboardHandler}>
+                    GoTo Dashboard
+                  </Button>
+                }
+              </Col>
+            </Row>
+
+            <Row>
+              {store.productList && store.productList.map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                    <Product product={product}/>
+                </Col>
+              ))}
+            </Row>
           </Container>
         </>
         )}
