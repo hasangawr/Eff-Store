@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {Row, Col, Container, Button} from 'react-bootstrap'
 import Product from '../components/Product'
 import Message from '../components/Message'
@@ -10,6 +11,7 @@ import { useParams } from 'react-router-dom'
 
 const HomeScreen = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   let { id } = useParams()
 
   const storeDetails = useSelector(state => state.storeDetails)
@@ -23,7 +25,7 @@ const HomeScreen = () => {
   }, [id, dispatch, userInfo])
 
   const goToDashboardHandler = () => {
-    console.log('dashboard')
+    navigate(`/owner/stores/${id}/dashboard`)
   }
 
   return (
