@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {Row, Col, Container, Button} from 'react-bootstrap'
+import Product from '../components/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listStoreDetails } from '../actions/storeActions'
@@ -27,14 +28,6 @@ const StoreDashboardScreen = () => {
         navigate(`/owner/stores/${id}/edit`)
     }
 
-    const productListHandler = () => {
-        navigate(`/owner/stores/:id/products`)
-    }
-
-    const salesHandler = () => {
-        //navigate(`/owner/stores/${id}/edit`)
-    }
-
   return (
     <>
         <Meta title={store && store.name}/>
@@ -58,12 +51,12 @@ const StoreDashboardScreen = () => {
                             </Button>
                         </Col>
                         <Col>
-                            <Button className='my-3' onClick={productListHandler}>
+                            <Button className='my-3'>
                                 Product List
                             </Button>
                         </Col>
                         <Col>
-                            <Button className='my-3' onClick={salesHandler}>
+                            <Button className='my-3'>
                                 Manage Sales
                             </Button>
                         </Col>
