@@ -13,6 +13,7 @@ import Meta from '../components/Meta'
 
 const ProductListScreen = () => {
     let { pageNumber } = useParams()
+    let { id } = useParams()
     if(!pageNumber) pageNumber = 1
 
     const dispatch = useDispatch()
@@ -27,14 +28,13 @@ const ProductListScreen = () => {
     const productCreate = useSelector(state => state.productCreate)
     const { loading:loadingCreate, error:errorCreate, success:successCreate, product:createdProduct } = productCreate
 
-
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
     useEffect(() => {
         dispatch({ type: PRODUCT_CREATE_RESET })
 
-        if(!userInfo.isAdmin) {
+        if(!userInfo.isOwner || !userInfo.stores.includes(id)) {
             navigate('/login')
         }
 
