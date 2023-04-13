@@ -100,10 +100,10 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 })
 
 // @desc    Update order to delivered
-// @route   PUT /api/orders/:id/deliver
-// @access  Private/Admin
+// @route   PUT /api/orders/:orderId/deliver/:id
+// @access  Private/Owner
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id)
+    const order = await Order.findById(req.params.orderId)
 
     if(order) {
         order.isDelivered = true
@@ -126,6 +126,14 @@ const getMyOrders = asyncHandler(async (req, res) => {
     res.json(orders)
 })
 
+// @desc    Get store orders
+// @route   GET /api/orders/stores/:id
+// @access  Private/Owner
+const getStoreOrders = asyncHandler(async (req, res) => {
+    const orders = await Order.find({ store: req.params.id })
+    res.json(orders)
+})
+
 // @desc    Get all orders
 // @route   GET /api/orders/
 // @access  Private/Admin
@@ -134,4 +142,4 @@ const getOrders = asyncHandler(async (req, res) => {
     res.json(orders)
 })
 
-export { addOrderItems, getOrderById, updateOrderToPaid, updateOrderToDelivered, getMyOrders, getOrders }
+export { addOrderItems, getOrderById, updateOrderToPaid, updateOrderToDelivered, getMyOrders, getOrders, getStoreOrders }

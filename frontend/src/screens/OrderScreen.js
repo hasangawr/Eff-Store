@@ -12,6 +12,8 @@ import Meta from '../components/Meta'
 
 const OrderScreen = () => {
     let { id } = useParams()
+    let { storeId } = useParams()
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -74,7 +76,7 @@ const OrderScreen = () => {
     }
 
     const deliverHandler = () => {
-        dispatch(deliverOrder(order))
+        dispatch(deliverOrder(order, storeId))
     }
 
   return loading ? <Loader /> : 
@@ -186,7 +188,7 @@ const OrderScreen = () => {
                         )}
 
                         {loadingDeliver && <Loader />}
-                        {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                        {userInfo && storeId && userInfo.isOwner && userInfo.stores.includes(storeId) && order.isPaid && !order.isDelivered && (
                             <ListGroup.Item>
                                 <Button type='button' className='btn btn-block' onClick={deliverHandler}>
                                     Mark As Delivered
