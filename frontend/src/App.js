@@ -29,10 +29,11 @@ const App = () => {
         <>
           <Routes>
             <Route path='/stores/:id' element={<StoreScreen />} exact/>
+            <Route path='/owner/stores/:id/productlist' element={<ProductListScreen />} />
             <Route path='/owner/stores/:id/dashboard' element={<StoreDashboardScreen />} />
             <Route path='/owner/stores/:id/edit' element={<StoreEditScreen />} />
-            <Route path='/order/:id' element={<OrderScreen />} />
-            <Route path='/order/:id/:storeId' element={<OrderScreen />} />
+            <Route path='/order/:id' element={<OrderScreen />} exact/>
+            <Route path='/order/:id/:storeId' element={<OrderScreen />} exact/>
             <Route path='/place-order' element={<PlaceOrderScreen />} />
             <Route path='/payment' element={<PaymentScreen />} />
             <Route path='/login/shipping' element={<ShippingScreen />} />

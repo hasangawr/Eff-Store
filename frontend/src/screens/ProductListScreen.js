@@ -12,6 +12,8 @@ import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 import Meta from '../components/Meta'
 
 const ProductListScreen = () => {
+    let { id } = useParams()
+
     let { pageNumber } = useParams()
     if(!pageNumber) pageNumber = 1
 
@@ -34,7 +36,7 @@ const ProductListScreen = () => {
     useEffect(() => {
         dispatch({ type: PRODUCT_CREATE_RESET })
 
-        if(!userInfo.isAdmin) {
+        if(!userInfo || !userInfo.isOwner || !userInfo.stores.includes(id)) {
             navigate('/login')
         }
 
@@ -43,7 +45,7 @@ const ProductListScreen = () => {
         } else {
             dispatch(listProducts('', pageNumber))
         }
-    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, pageNumber])
+    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, pageNumber, id])
 
     const deleteHandler = (id) => {
         if(window.confirm('Are you sure')) {

@@ -37,6 +37,14 @@ const StoreDashboardScreen = () => {
         navigate(`/owner/stores/${id}/edit`)
     }
 
+    const productListHandler = () => {
+        navigate(`/owner/stores/${id}/productlist`)
+    }
+
+    const posHandler = () => {
+        //POS
+    }
+
   return (
     <>
         <Meta title={store && store.name}/>
@@ -61,13 +69,13 @@ const StoreDashboardScreen = () => {
                             </Button>
                         </Col>
                         <Col>
-                            <Button className='my-3'>
+                            <Button className='my-3' onClick={productListHandler}>
                                 Product List
                             </Button>
                         </Col>
                         <Col>
-                            <Button className='my-3'>
-                                Manage Sales
+                            <Button className='my-3' onClick={posHandler}>
+                                Point of Sales
                             </Button>
                         </Col>
                         </Row>

@@ -36,10 +36,10 @@ const getProductById = asyncHandler(async (req, res) => {
 })
 
 // @desc    Delete a product
-// @route   DELETE /api/products/:id
-// @access  Private/Admin
+// @route   DELETE /api/products/:id/:productId
+// @access  Private/Owner
 const deleteProduct = asyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id)
+    const product = await Product.findById(req.params.productId)
 
     if (product) {
         await product.remove()
@@ -51,11 +51,12 @@ const deleteProduct = asyncHandler(async (req, res) => {
 })
 
 // @desc    Create a product
-// @route   POST /api/products/
-// @access  Private/Admin
+// @route   POST /api/products/:id
+// @access  Private/Owner
 const createProduct = asyncHandler(async (req, res) => {
     const product = new Product({
         name: 'Sample name',
+        store: req.params.id,
         price: 0,
         user: req.user._id,
         image: '/images/sample.png',
@@ -71,12 +72,12 @@ const createProduct = asyncHandler(async (req, res) => {
 })
 
 // @desc    Update a product
-// @route   PUT /api/products/:id
-// @access  Private/Admin
+// @route   PUT /api/products/:id/:productId
+// @access  Private/Owner
 const updateProduct = asyncHandler(async (req, res) => {
     const {name, price, description, image, brand, category, countInStock} = req.body
 
-    const product = await Product.findById(req.params.id)
+    const product = await Product.findById(req.params.productId)
 
     if(product) {
         product.name = name
