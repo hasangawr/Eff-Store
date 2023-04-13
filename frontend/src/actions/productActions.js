@@ -39,7 +39,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     }
 }
 
-export const deleteProduct = (id) => async (dispatch, getState) => {
+export const deleteProduct = (id, productId) => async (dispatch, getState) => {
     try {
         dispatch({
             type: PRODUCT_DELETE_REQUEST
@@ -54,7 +54,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         }
 
         await axios.delete(
-            `/api/products/${id}`,
+            `/api/products/${id}/${productId}`,
             config
         )
 
@@ -70,7 +70,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
     }
 }
 
-export const createProduct = () => async (dispatch, getState) => {
+export const createProduct = (id) => async (dispatch, getState) => {
     try {
         dispatch({
             type: PRODUCT_CREATE_REQUEST
@@ -85,7 +85,7 @@ export const createProduct = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/products`,
+            `/api/products/${id}`,
             {},
             config
         )
@@ -103,7 +103,7 @@ export const createProduct = () => async (dispatch, getState) => {
     }
 }
 
-export const updateProduct = (product) => async (dispatch, getState) => {
+export const updateProduct = (product, id) => async (dispatch, getState) => {
     try {
         dispatch({
             type: PRODUCT_UPDATE_REQUEST
@@ -118,8 +118,10 @@ export const updateProduct = (product) => async (dispatch, getState) => {
             }
         }
 
+        let productId = product._id
+
         const { data } = await axios.put(
-            `/api/products/${product._id}`,
+            `/api/products/${id}/${productId}`,
             product,
             config
         )

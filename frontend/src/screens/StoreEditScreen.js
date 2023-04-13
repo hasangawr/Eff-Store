@@ -32,7 +32,7 @@ const StoreEditScreen = () => {
     useEffect(() => {
         if(successUpdate) {
             dispatch({ type: STORE_UPDATE_RESET })
-            navigate('/') //NAVIGATE TO STORE SCREEN*****************************************************
+            navigate(`/owner/stores/${storeId}/dashboard`)
         } else {
             if(!store.name || store._id !== storeId) {
                 dispatch(listStoreDetails(storeId))
@@ -82,7 +82,7 @@ const StoreEditScreen = () => {
   return (
     <Container>
         <Meta title='Edit Store' />
-        <Link to='/' className='btn btn-light my-3'>
+        <Link to={`/owner/stores/${storeId}/dashboard`} className='btn btn-light my-3'>
             Go Back
         </Link>
         <FormContainer>

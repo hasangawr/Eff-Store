@@ -9,7 +9,7 @@ import { listStoreDetails } from '../actions/storeActions'
 import Meta from '../components/Meta'
 import { useParams } from 'react-router-dom'
 
-const HomeScreen = () => {
+const StoreScreen = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   let { id } = useParams()
@@ -66,4 +66,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default StoreScreen

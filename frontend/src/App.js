@@ -29,6 +29,7 @@ const App = () => {
         <>
           <Routes>
             <Route path='/stores/:id' element={<StoreScreen />} exact/>
+            <Route path='/owner/stores/:id/:productId/edit' element={<ProductEditScreen />} />
             <Route path='/owner/stores/:id/productlist' element={<ProductListScreen />} />
             <Route path='/owner/stores/:id/dashboard' element={<StoreDashboardScreen />} />
             <Route path='/owner/stores/:id/edit' element={<StoreEditScreen />} />

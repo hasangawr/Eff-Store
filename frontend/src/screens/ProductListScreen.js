@@ -6,10 +6,10 @@ import { Button, Table, Container, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import { deleteProduct, listProducts, createProduct } from '../actions/productActions'
+import { deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 import Meta from '../components/Meta'
+import { listStoreDetails } from '../actions/storeActions'
 
 const ProductListScreen = () => {
     let { id } = useParams()
@@ -20,8 +20,8 @@ const ProductListScreen = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     
-    const productList = useSelector(state => state.productList)
-    const { loading, error, products, page, pages } = productList
+    const storeDetails = useSelector(state => state.storeDetails)
+    const { loading, error, store } = storeDetails
 
     const productDelete = useSelector(state => state.productDelete)
     const { loading:loadingDelete, error:errorDelete, success:successDelete } = productDelete
@@ -41,20 +41,21 @@ const ProductListScreen = () => {
         }
 
         if(successCreate) {
-            navigate(`/admin/product/${createdProduct._id}/edit`)
+            let productId = createdProduct._id
+            navigate(`/owner/stores/${id}/${productId}/edit`)
         } else {
-            dispatch(listProducts('', pageNumber))
+            dispatch(listStoreDetails(id))
         }
     }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, pageNumber, id])
 
-    const deleteHandler = (id) => {
+    const deleteHandler = (productId) => {
         if(window.confirm('Are you sure')) {
-            dispatch(deleteProduct(id))
+            dispatch(deleteProduct(id, productId))
         }
     }
 
     const createProductHandler = (product) => {
-        dispatch(createProduct())
+        dispatch(createProduct(id))
     }
 
   return (
@@ -89,7 +90,7 @@ const ProductListScreen = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(product => (
+                    {store.productList.map(product => (
                         <tr key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
@@ -97,7 +98,7 @@ const ProductListScreen = () => {
                             <td>{product.category}</td>
                             <td>{product.brand}</td>
                             <td>
-                                <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                                <LinkContainer to={`/owner/stores/${id}/${product._id}/edit`}>
                                     <Button variant='light' className='btn-sm'>
                                         <i className='fas fa-edit'></i>
                                     </Button>
@@ -110,7 +111,6 @@ const ProductListScreen = () => {
                     ))}
                 </tbody>
             </Table>
-            <Paginate pages={pages} page={page} isAdmin={true} />
             </>
          )}
     </Container>

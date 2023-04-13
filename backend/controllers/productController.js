@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import Product from "../models/productModel.js";
+import Store from "../models/storeModel.js";
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -40,9 +41,18 @@ const getProductById = asyncHandler(async (req, res) => {
 // @access  Private/Owner
 const deleteProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.productId)
+    const store = await Store.findById(req.params.id)
 
     if (product) {
         await product.remove()
+
+        console.log(store.products.indexOf(req.params.productId))
+
+        if(store.products.indexOf(req.params.productId)) {
+            store.products.splice(store.products.indexOf(req.params.productId), 1)
+            await store.save()
+        }
+
         res.json({ message: 'Product removed'})
     } else {
         res.status(404)
@@ -54,6 +64,8 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @route   POST /api/products/:id
 // @access  Private/Owner
 const createProduct = asyncHandler(async (req, res) => {
+    const store = await Store.findById(req.params.id)
+
     const product = new Product({
         name: 'Sample name',
         store: req.params.id,
@@ -68,6 +80,10 @@ const createProduct = asyncHandler(async (req, res) => {
     })
 
     const createdProduct = await product.save()
+
+    store.products.push(createdProduct._id)
+    await store.save()
+
     res.status(201).json(createdProduct)
 })
 

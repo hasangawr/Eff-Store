@@ -12,7 +12,8 @@ import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
 import Meta from '../components/Meta'
 
 const ProductEditScreen = () => {
-    const { id:productId } = useParams()
+    let { productId } = useParams()
+    let { id } = useParams()
 
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
@@ -35,7 +36,7 @@ const ProductEditScreen = () => {
     useEffect(() => {
         if(successUpdate) {
             dispatch({ type: PRODUCT_UPDATE_RESET })
-            navigate('/admin/productlist')
+            navigate(`/owner/stores/${id}/productlist`)
         } else {
             if(!product.name || product._id !== productId) {
                 dispatch(listProductDetails(productId))
@@ -85,13 +86,13 @@ const ProductEditScreen = () => {
             category,
             description,
             countInStock
-        }))
+        }, id))
     }
 
   return (
     <Container>
         <Meta title='Edit Product' />
-        <Link to='/admin/productlist' className='btn btn-light my-3'>
+        <Link to={`/owner/stores/${id}/productlist`} className='btn btn-light my-3'>
             Go Back
         </Link>
         <FormContainer>
