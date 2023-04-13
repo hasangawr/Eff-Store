@@ -22,6 +22,26 @@ const getStoreById = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Fetch all stores
+// @route   GET /api/stores
+// @access  public
+const getStores = asyncHandler(async (req, res) => {
+    const pageSize = 10
+    const page = Number(req.query.pageNumber) || 1
+
+    const keyword = req.query.keyword ? {
+        name: {
+            $regex: req.query.keyword,
+            $options: 'i'
+        }
+    } : {}
+
+    const count = await Store.count({...keyword})
+    const stores = await Store.find({...keyword}).limit(pageSize).skip((page - 1) * pageSize)
+
+    res.json({stores, page, pages: Math.ceil(count / pageSize)})
+})
+
 // @desc    Create a store
 // @route   POST /api/stores/
 // @access  Private
@@ -62,4 +82,4 @@ const updateStore = asyncHandler(async (req, res) => {
     res.json(updatedStore)
 })
 
-export { createStore, updateStore, getStoreById }
+export { createStore, updateStore, getStoreById, getStores }

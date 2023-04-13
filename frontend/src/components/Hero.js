@@ -50,12 +50,17 @@ const Hero = () => {
               Shopping has never been more <span className='green-txt'>effortless.</span> <br />
             </p>
             <Row>
-              <Col xs={5}>
+              <Col xs={4}>
                 <Button variant="primary" href="#products">
                   Browse Products
                 </Button>
               </Col>
-              <Col xs={5}>
+              <Col xs={4}>
+                <Button variant="primary" href="#stores">
+                  Browse Stores
+                </Button>
+              </Col>
+              <Col xs={4}>
                 <Button variant="primary" onClick={createStoreHandler}>
                   Create a Store
                 </Button>
