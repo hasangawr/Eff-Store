@@ -7,25 +7,56 @@ import Order from "../models/orderModel.js";
 const addOrderItems = asyncHandler(async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body
 
+    let orderItemsSet = orderItems
+
+    function groupBy(arr, property) {
+        return arr.reduce(function(memo, x) {
+            if (!memo[x[property]]) { memo[x[property]] = []; }
+            memo[x[property]].push(x);
+            return memo;
+        }, {});
+    }
+
     if (orderItems && orderItems.length === 0) {
         res.status(400)
         throw new Error('No order items')
         return
     } else {
-        const order = new Order({
-            orderItems,
-            user: req.user._id,
-            shippingAddress,
-            paymentMethod,
-            itemsPrice,
-            taxPrice,
-            shippingPrice,
-            totalPrice
-        })
 
-        const createdOrder = await order.save()
+        const orderItemsByStore = groupBy(orderItems, "store")
+        const numOfOrders = Object.keys(orderItemsByStore).length
 
-        res.status(201).json(createdOrder)
+        let newItemsPrice = Number(itemsPrice)
+        let newTaxPrice = Number((taxPrice / numOfOrders)).toFixed(2)
+        let newShippingPrice = Number((shippingPrice / numOfOrders)).toFixed(2)
+        let newTotalPrice = Number(totalPrice)
+
+        let createdOrders = []
+
+        for (var prop in orderItemsByStore) {
+            if (Object.prototype.hasOwnProperty.call(orderItemsByStore, prop)) {
+                orderItemsSet = orderItemsByStore[prop]
+            }
+
+            newItemsPrice = Number(orderItemsSet.reduce((acc, item) => acc + item.qty*item.price, 0)).toFixed(2)
+            newTotalPrice = Number(newItemsPrice) + Number(newTaxPrice) + Number(newShippingPrice)
+
+            const order = new Order({
+                orderItems: orderItemsSet,
+                store: prop,
+                user: req.user._id,
+                shippingAddress,
+                paymentMethod,
+                itemsPrice: newItemsPrice,
+                taxPrice: newTaxPrice,
+                shippingPrice: newShippingPrice,
+                totalPrice: newTotalPrice
+            })
+
+            createdOrders.push(await order.save())
+        }
+
+        res.status(201).json(createdOrders)
     }
 })
 
