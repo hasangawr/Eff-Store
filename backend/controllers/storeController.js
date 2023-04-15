@@ -9,12 +9,14 @@ import Product from '../models/productModel.js';
 const getStoreById = asyncHandler(async (req, res) => {
     const store = await Store.findById(req.params.id)
 
+    let productList = []
+
     if (store) {
         if (store.products.length !== 0) {
-            const productList = await Product.find({'_id': { $in : [...store.products]}})
+            productList = await Product.find({'_id': { $in : [...store.products]}})
             res.json({...store.toObject(), productList})
         } else {
-            res.json(store)
+            res.json({...store.toObject(), productList})
         }
     } else {
         res.status(404)
