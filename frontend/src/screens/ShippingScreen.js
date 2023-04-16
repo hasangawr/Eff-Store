@@ -31,7 +31,7 @@ const ShippingScreen = () => {
     <FormContainer>
         <CheckoutSteps step1 step2 />
         <Meta title='Shipping' />
-        <h1>Shipping</h1>
+        <h1>Delivery</h1>
         <Form onSubmit={submitHandler}>
             <Form.Group controlId='address'>
                 <Form.Label class="form-label mt-4">Address</Form.Label>

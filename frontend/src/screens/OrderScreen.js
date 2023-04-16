@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { PayPalButton } from 'react-paypal-button-v2'
+import React, { useEffect } from 'react'
 import { Row, Col, ListGroup, Image, Card, Container, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
+import { getOrderDetails, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants'
 import Meta from '../components/Meta'
-
-//payhere integration
-import { Payhere, AccountCategory } from "payhere-js-sdk"
-import { Customer, CurrencyType, PayhereCheckout, CheckoutParams } from 'payhere-js-sdk'
 
 const OrderScreen = () => {
     let { id } = useParams()
@@ -21,8 +15,6 @@ const OrderScreen = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [sdkReady, setSdkReady] = useState(false)
-
     const orderDetails = useSelector((state) => state.orderDetails)
     const { order, loading, error } = orderDetails
 
@@ -30,7 +22,7 @@ const OrderScreen = () => {
     const { userInfo } = userLogin
 
     const orderPay = useSelector((state) => state.orderPay)
-    const { loading: loadingPay, success: successPay } = orderPay
+    const { success: successPay } = orderPay
 
     const orderDeliver = useSelector((state) => state.orderDeliver)
     const { loading: loadingDeliver, success: successDeliver } = orderDeliver
@@ -45,78 +37,16 @@ const OrderScreen = () => {
     }
 
     useEffect(() => {
-        // Sandbox 
-        Payhere.init("1222935", AccountCategory.SANDBOX)
-
         if (!userInfo) {
             navigate('/login')
-        }
-
-        const addPaypalScript = async () => {
-            const { data: clientId } = await axios.get('/api/config/paypal')
-            const script = document.createElement('script')
-            script.type = 'text/javascript'
-            script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-            script.async = true
-            script.onload = () => {
-                setSdkReady(true)
-            }
-            document.body.appendChild(script)
         }
 
         if (!order || successPay || successDeliver) {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
             dispatch(getOrderDetails(id))
-        } else if (!order.isPaid) {
-            if (!window.paypal) {
-                //addPaypalScript()
-            } else {
-                //setSdkReady(true)
-            }
         }
     }, [dispatch, id, successPay, successDeliver, order, userInfo, navigate])
-
-    //PayHere integ
-
-    //PayHere checkout handler
-    function onPayhereCheckoutError(errorMsg) {
-        alert(errorMsg)
-    }
-
-    function checkout() {
-        const customer = new Customer({
-            first_name: userInfo.name,
-            last_name: userInfo.name,
-            phone: "+94771234567",
-            email: userInfo.email,
-            address: "No. 50, Highlevel Road",
-            city: "Panadura",
-            country: "Sri Lanka",
-        })
-
-        const checkoutData = new CheckoutParams({
-            returnUrl: `http://localhost:3000/order/${id}/${storeId}`,
-            cancelUrl: `http://localhost:3000/order/${id}/${storeId}`,
-            notifyUrl: `http://localhost:5000/api/orders/${id}/pay`,
-            order_id: id,
-            itemTitle: 'Demo Item',
-            currency: CurrencyType.LKR,
-            amount: 100,
-            hash: '45D3CBA93E9F2189BD630ADFE19AA6DC'
-        })
-
-        const checkout = new PayhereCheckout(customer, checkoutData, onPayhereCheckoutError)
-        checkout.start()
-    }
-
-
-
-    const successPaymentHandler = () => {
-        //console.log(paymentResult)
-        //dispatch(payOrder(id, paymentResult))
-        checkout();
-    }
 
     const deliverHandler = () => {
         dispatch(deliverOrder(order, storeId))
@@ -131,7 +61,7 @@ const OrderScreen = () => {
                     <Col md={8}>
                         <ListGroup variant='flush'>
                             <ListGroup.Item>
-                                <h2>Shipping</h2>
+                                <h2>Delivery</h2>
                                 <p>
                                     <strong>Name: </strong> {order.user.name}
                                 </p>
@@ -181,7 +111,7 @@ const OrderScreen = () => {
                                                         </Link>
                                                     </Col>
                                                     <Col md={4}>
-                                                        {item.qty} × ${item.price} = ${item.qty * item.price}
+                                                        {item.qty} × Rs. {item.price} = Rs. {item.qty * item.price}
                                                     </Col>
                                                 </Row>
                                             </ListGroup.Item>
@@ -200,30 +130,48 @@ const OrderScreen = () => {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Items</Col>
-                                        <Col>${order.itemsPrice}</Col>
+                                        <Col>Rs. {order.itemsPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col>Shipping</Col>
-                                        <Col>${order.shippingPrice}</Col>
+                                        <Col>Delivery</Col>
+                                        <Col>Rs. {order.shippingPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Tax</Col>
-                                        <Col>${order.taxPrice}</Col>
+                                        <Col>Rs. {order.taxPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Total</Col>
-                                        <Col>${order.totalPrice}</Col>
+                                        <Col>Rs. {order.totalPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 {!order.isPaid && (
                                     <ListGroup.Item>
-                                        <Button type='button' onClick={checkout}> pay </Button>
+                                        <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
+                                            <input type="hidden" name="merchant_id" value="1222935" />
+                                            <input type="hidden" name="return_url" value={`http://localhost:3000/order/${id}`} />
+                                            <input type="hidden" name="cancel_url" value={`http://localhost:3000`} />
+                                            <input type="hidden" name="notify_url" value="https://quiet-poems-act-123-231-109-40.loca.lt/api/orders/pay" />  
+                                            <input type="hidden" name="order_id" value={order._id} />
+                                            <input type="hidden" name="items" value="order" />
+                                            <input type="hidden" name="currency" value="LKR" />
+                                            <input type="hidden" name="amount" value={order.totalPrice} />
+                                            <input type="hidden" name="first_name" value={userInfo.name} />
+                                            <input type="hidden" name="last_name" value={userInfo.name} />
+                                            <input type="hidden" name="email" value={userInfo.email} />
+                                            <input type="hidden" name="phone" value="0771234567" />
+                                            <input type="hidden" name="address" value={order.shippingAddress.address} />
+                                            <input type="hidden" name="city" value={order.shippingAddress.city} />
+                                            <input type="hidden" name="country" value={order.shippingAddress.country} />
+                                            <input type="hidden" name="hash" value={order.hash} />
+                                            <button type="submit" name="Buy Now" value="Buy Now" className='btn btn-primary btn-block'>Pay With PayHere</button>
+                                        </form>
                                     </ListGroup.Item>
                                 )}
 

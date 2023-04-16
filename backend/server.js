@@ -10,6 +10,7 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import storeRoutes from './routes/storeRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
+import bodyParser from 'body-parser'
 
 dotenv.config()
 
@@ -24,13 +25,16 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json())
 
+//payHere notify
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/stores', storeRoutes)
 app.use('/api/upload', uploadRoutes)
-
-app.get('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
@@ -43,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
     )
 } else {
     app.get('/', (req, res) => {
-        res.send('api is running....')
+        res.send('api is running...')
     })
 }
 
