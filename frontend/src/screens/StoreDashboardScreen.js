@@ -42,7 +42,7 @@ const StoreDashboardScreen = () => {
     }
 
     const posHandler = () => {
-        //POS
+        navigate(`/owner/stores/${id}/pos`)
     }
 
   return (

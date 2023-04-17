@@ -1,3 +1,413 @@
+commit beba1169091997d891f259fcbc1a5d6e4bef4ac1
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Apr 17 01:46:43 2023 +0530
+
+    Integrate payhere payment gateway
+
+commit 7215d480835ca8c7853d20f7c5d65d2ea7f7cd3c
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Apr 15 10:39:46 2023 +0530
+
+    Test payhere payment gateway
+
+commit 5b68e70f103163417a96d465e24837f127930b25
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Apr 15 06:37:27 2023 +0530
+
+    Fix productList bug in storeController
+
+commit e7275ef243c9baeac21f6e6f1510b313b77048ab
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 20:51:18 2023 +0530
+
+    Remove products & order functionalities from admin
+
+commit 5e24a07635af078cde3929359cfba1a6d0a22749
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 20:43:25 2023 +0530
+
+    List & update products
+
+commit 1666876528eb320c609979e844c058b1817277a9
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 16:30:00 2023 +0530
+
+    Update product controllers & routes from admin to owner
+
+commit 6b8acc94861cc74c0a2888380d92f3071ecb0b45
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 15:03:02 2023 +0530
+
+    Display orders on store dashboard and mark as delivered button update
+
+commit e982d998f8656967aad682caf5f98568dc3224a5
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 13:29:53 2023 +0530
+
+    Divide orders for different stores
+
+commit c10f5dec6681cc62b3fb2e1d46f90eea8386b468
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 08:00:58 2023 +0530
+
+    Display Stores on homescreen
+
+commit a89615004fac2b73b56cad336f50259e52572c29
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 00:35:05 2023 +0530
+
+    Revert "Commit 1"
+
+commit 30daeae2a526e944772d08212af8a707dfd7e0bd
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Apr 13 00:34:25 2023 +0530
+
+    Commit 1
+
+commit ca5fd460b434917d8a0f789049b2ce990cdb8815
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Apr 12 21:25:42 2023 +0530
+
+    Create store dashboard screen
+
+commit d67582c0ef26818680f1ebbd273d45718f7c8d1e
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Apr 12 08:23:06 2023 +0530
+
+    Fix minor warning
+
+commit f876c28e7c2144940f09853c842305850244c913
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Apr 12 08:14:40 2023 +0530
+
+    Go to dashboard button
+
+commit 797ef7ac6fcd35e243512d516b9b53ce61174523
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Apr 11 14:45:58 2023 +0530
+
+    Create store screen & update get store by id endpoint to return product list
+
+commit 72c2bbaf6c2c4cb721e8a5e445edb405aca47cc4
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Apr 10 04:52:40 2023 +0530
+
+    Update product & store models
+
+commit f129e6454c3d3420e3e2143e168ec5bca29c06ec
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Apr 10 04:33:56 2023 +0530
+
+    link
+
+commit 389d07f8b1c85717c1b953a4a570eaa881949bb4
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Apr 10 03:17:23 2023 +0530
+
+    Create my stores nav bar menu
+
+commit f68a49cd5e57ebe171558a8b6793d5e7f18536c9
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Apr 9 18:16:51 2023 +0530
+
+    Create endpoint to get stores by user id
+
+commit 38bb6cc1a2f020089fa0aeb805cedcdbaea78539
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Apr 9 12:59:49 2023 +0530
+
+    Fix order dependency issue of placeOrderScreen
+
+commit 585799ad1a4c900e876cbac4dc3fe6285f48a60d
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Apr 7 21:17:16 2023 +0530
+
+    Create store frontend
+
+commit 3c1110766576b48a51ec204a3a06e0d534e8a8e8
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Apr 7 15:38:28 2023 +0530
+
+    Update store endpoint
+
+commit 5b1fa62040e3230499d85dc8a5305c52e725b31b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Apr 7 14:48:10 2023 +0530
+
+    Create store endpoint
+
+commit 9b99b177b1b474c0286540360187e8debe961872
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Apr 7 08:52:13 2023 +0530
+
+    Add go back button to search products
+
+commit 16f1b1786873cacf3dcc2d69af1953f78d6d566b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Apr 7 08:43:37 2023 +0530
+
+    Add custom page titles using meta component
+
+commit 143b45766dc8ed77e55045abfa0f5cc4ed1c0d89
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Apr 4 18:56:20 2023 +0530
+
+    Implement pagination
+
+commit 7ad1a4fa798c3bfc83adad8742f22e5fd8040468
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Apr 3 20:00:12 2023 +0530
+
+    Implement search products functionality
+
+commit e30d4199a6eb381695a9914a81f35b3e8c6ec741
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Mar 26 09:06:28 2023 +0530
+
+    Implement frontend product review
+
+commit 219038c12edd015ddad39876a554080d84a8d657
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Mar 26 07:12:59 2023 +0530
+
+    Implement endpoint to create new review
+
+commit 2e70887930bcbaaf42ccb0e4aff5a7182520cedc
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Mar 25 16:29:04 2023 +0530
+
+    Implement order mark as delivered function
+
+commit 2602aca2eaa76f76fc82d9de342f528737a57098
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Mar 25 09:44:39 2023 +0530
+
+    Create order list screen only admin
+
+commit 206fc9ad08a4fff7a7a74c92dfbfce108a00c5f1
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 24 16:10:16 2023 +0530
+
+    Implemnt frontend image upload functionality
+
+commit 185077431de044207c0e14196578b9f84ee7cf75
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 24 11:59:14 2023 +0530
+
+    Create image upload endpoint & config
+
+commit df0808ea3f066ba89d00bcdc4de63b1475a436b8
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 24 08:57:38 2023 +0530
+
+    Implement update product functionality
+
+commit 79b025b8015cd84a0d8fb80937d91951e930b6dc
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 24 08:15:43 2023 +0530
+
+    Implement product edit screen
+
+commit c96042b5053aa790977049c56894896f42c206ca
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 23 08:39:18 2023 +0530
+
+    Implement create product admin only functionality
+
+commit eaaf50f2a9a8d4371fce37691250f0e738399ccf
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 22 21:33:49 2023 +0530
+
+    Create product create & product update endpoints
+
+commit 44efea433adc542f2e6770a655db652f541cdf2c
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 22 18:49:25 2023 +0530
+
+    Implement delete product functionality in frontend
+
+commit 083085b8064bee91e5263c3c9d8f6b44b23fdc47
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 22 18:03:18 2023 +0530
+
+    Create controller and route for admin to delete a product
+
+commit 5ddac0c7e381cb363b73f7994bcbedac19831ffc
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 22 14:36:02 2023 +0530
+
+    Create admin product list screen
+
+commit effbf5ace8f79dfde0b38fc8db95346f174753d4
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 22 08:33:39 2023 +0530
+
+    Implement update user functionality from user Edit Screen
+
+commit 7a4acb2aeedd0e8ceddbaa4980131fc165402e2e
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Mar 21 21:41:32 2023 +0530
+
+    Implement edit user screen
+
+commit 0b643bb6e703ea4b998f8a4cff3cf522764ec1a3
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Mar 21 20:29:10 2023 +0530
+
+    Create getUserById and updateUser enpoints for admin
+
+commit 1135d42341d5e8e68042d1e6544cbd616f7971bd
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Tue Mar 21 19:07:44 2023 +0530
+
+    Implement user delete function for admin
+
+commit 05bf41e3f850e79ae683e5169010390f114a4a48
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Mar 20 21:33:16 2023 +0530
+
+    Implement user list screen reset & navigation
+    
+    Reset user list & navigate to login screen when admin logout
+
+commit 0706404137da034ed21a5795dd5c4511cfb3dae3
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Mar 18 20:39:41 2023 +0530
+
+    Implement admin userlist screen
+
+commit c8279d2509a34c5dd057a9d5e078b31373ed67ca
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 12:14:49 2023 +0530
+
+    Implement get users endpoint with admin middleware
+    
+    Get users endpoint is used to get details of all the users.
+    By using admin middleware this route is restricted only for admin.
+
+commit e57a07bd8c7b531dd33a5865a07b861f9af4ead2
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 11:45:19 2023 +0530
+
+    Reset user details and orders as user logout
+
+commit dfe75a9b133bfc8d67c7b6ac80c8719756cad224
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 10:59:06 2023 +0530
+
+    Show orders on profile screen
+
+commit fa7496afdad151c20d73be64bc91cc05fa3c78ba
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 09:26:35 2023 +0530
+
+    Create endpoint to get logged in user orders
+
+commit 26fe0908faa88a4b0ce494025d85edd2c157432b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 08:29:48 2023 +0530
+
+    Revert "Rev"
+    
+    This reverts commit 46ccbbd9576c30e1aaf9df2b609f50d041f3cce6.
+
+commit 46ccbbd9576c30e1aaf9df2b609f50d041f3cce6
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 16 08:29:12 2023 +0530
+
+    Rev
+
+commit 14ae3ed6452af786db3bf4d6190e15b2d691b90f
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 15 09:05:52 2023 +0530
+
+    Integrate paypal payment option
+
+commit 6b42726b0b69e2dad217e22295ebe8ba5d3e9309
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Mar 8 18:20:19 2023 +0530
+
+    Create order pay reducer & action
+
+commit 334be4b4c920a7fc08b0f8c122ee924129b14896
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Mon Mar 6 07:26:49 2023 +0530
+
+    Implement update to paid endpoint
+
+commit df25c3d2d376bc4fd05b5e96549e151aa0c869ab
+Merge: d5d139b af44f19
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Mar 5 19:33:41 2023 +0530
+
+    Merge branch 'main' of github.com:hasangawr/Super-Shop
+
+commit d5d139b08f105248ce7c6ecaed4f2292db009a51
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sun Mar 5 19:31:23 2023 +0530
+
+    Create order screen
+
+commit b6864e99d8f78e5d92eb9a43b0d9e363923512eb
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 3 09:23:19 2023 +0530
+
+    Create order details reducer & action
+
+commit 836079152c0b626378fdf201d2585a90c54d840f
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Mar 3 08:47:04 2023 +0530
+
+    Create endpoint to get order by id
+
+commit a44ccd06e6cba66f86cadfea5885f813b8bd613a
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Mar 2 12:00:49 2023 +0530
+
+    Save order to the database
+
+commit 7085a42eac35a2a3bce8e8434899be81612b3302
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Feb 25 12:36:10 2023 +0530
+
+    Create orderController and orderRoutes
+
+commit af44f19c99d36917a85a72c0f40e0a4ed83f9ad6
+Author: hasangawr <118647441+hasangawr@users.noreply.github.com>
+Date:   Thu Feb 23 17:39:19 2023 +0530
+
+    Update README.md
+
+commit b976731c750f907b39e824b21a0232e95ed7ca70
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Sat Feb 11 09:49:26 2023 +0530
+
+    Implement PlaceOrder screen
+
+commit 7c429eaebcb7805e4082b437b277b884eca15557
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Feb 10 09:14:46 2023 +0530
+
+    Create payment screen & select payment method functionality
+
+commit fb318e626e421b33fafb44992501a481e66f4bf6
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Wed Jan 25 19:35:11 2023 +0530
+
+    Create CheckoutSteps component
+
+commit d1a3f5bc4192d7d4cad9e088440bdabe5d3ebf11
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Fri Jan 20 06:16:42 2023 +0530
+
+    Create shipping screen & save address
+
+commit 7942c6764b5e5964a63431c22daa240b654d003b
+Author: hasangawr <hasangawr@gmail.com>
+Date:   Thu Jan 19 19:23:57 2023 +0530
+
+    Add few sample products
+
 commit b7036ea482c83681c4173501222bf28f97bbc726
 Author: hasangawr <hasangawr@gmail.com>
 Date:   Mon Jan 16 13:00:55 2023 +0530

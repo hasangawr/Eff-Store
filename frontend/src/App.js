@@ -12,7 +12,6 @@ import ShippingScreen from './screens/ShippingScreen'
 import PaymentScreen from './screens/PaymentScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import OrderScreen from './screens/OrderScreen'
-import OrderListScreen from './screens/OrderListScreen'
 import UserListScreen from './screens/UserListScreen'
 import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
@@ -20,6 +19,7 @@ import ProductEditScreen from './screens/ProductEditScreen'
 import StoreEditScreen from './screens/StoreEditScreen'
 import StoreScreen from './screens/StoreScreen'
 import StoreDashboardScreen from './screens/StoreDashboardScreen'
+import POSScreen from './screens/POSScreen'
 
 const App = () => {
   return (
@@ -29,6 +29,7 @@ const App = () => {
         <>
           <Routes>
             <Route path='/stores/:id' element={<StoreScreen />} exact/>
+            <Route path='/owner/stores/:id/pos' element={<POSScreen />} />
             <Route path='/owner/stores/:id/:productId/edit' element={<ProductEditScreen />} />
             <Route path='/owner/stores/:id/productlist' element={<ProductListScreen />} />
             <Route path='/owner/stores/:id/dashboard' element={<StoreDashboardScreen />} />

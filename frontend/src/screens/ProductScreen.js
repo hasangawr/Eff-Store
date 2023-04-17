@@ -51,6 +51,7 @@ const ProductScreen = () => {
         }))
     }
 
+    console.log(product.image)
   return (
     <Container className='py-3'>
         <Link className='btn btn-light my-3' to='/'>Go Back</Link>

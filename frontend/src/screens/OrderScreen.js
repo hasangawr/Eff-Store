@@ -157,7 +157,7 @@ const OrderScreen = () => {
                                             <input type="hidden" name="merchant_id" value="1222935" />
                                             <input type="hidden" name="return_url" value={`http://localhost:3000/order/${id}`} />
                                             <input type="hidden" name="cancel_url" value={`http://localhost:3000`} />
-                                            <input type="hidden" name="notify_url" value="https://quiet-poems-act-123-231-109-40.loca.lt/api/orders/pay" />  
+                                            <input type="hidden" name="notify_url" value="https://metal-pears-swim-175-157-52-165.loca.lt/api/orders/pay" />  
                                             <input type="hidden" name="order_id" value={order._id} />
                                             <input type="hidden" name="items" value="order" />
                                             <input type="hidden" name="currency" value="LKR" />

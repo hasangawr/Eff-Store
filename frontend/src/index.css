@@ -52,3 +52,19 @@ h2 {
 .green-txt {
   color: #4bbf73;
 }
+
+.pos-item {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pos-item:hover {
+  background: #C5C5C5;
+  color: white;
+}
+
+.pos-item img {
+  width: 100%;
+  
+  object-fit: cover;
+}
