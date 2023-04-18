@@ -52,7 +52,7 @@ const createStore = asyncHandler(async (req, res) => {
         owner: req.user._id,
         name: 'Sample Store',
         type: 'Sample type',
-        image: '/images/sample.png',
+        image: '/images/sample.jpg',
         description: 'Sample description',
         numReviews: 0,
     })

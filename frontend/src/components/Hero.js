@@ -60,8 +60,8 @@ const Hero = () => {
                   Browse Stores
                 </Button>
               </Col>
-              <Col xs={4}>
-                <Button variant="primary" onClick={createStoreHandler}>
+              <Col xs={3}>
+                <Button variant="btn btn-primary btn-block" onClick={createStoreHandler} style={{backgroundColor: '#1a1a1a', fontSize: '0.765625rem', letterSpacing: '1px', fontWeight: '600', paddingLeft: '0', paddingRight: '0'}}>
                   Create a Store
                 </Button>
               </Col>

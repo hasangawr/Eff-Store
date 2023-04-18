@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Col, ListGroup, Image, Card, Container, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -157,7 +157,7 @@ const OrderScreen = () => {
                                             <input type="hidden" name="merchant_id" value="1222935" />
                                             <input type="hidden" name="return_url" value={`http://localhost:3000/order/${id}`} />
                                             <input type="hidden" name="cancel_url" value={`http://localhost:3000`} />
-                                            <input type="hidden" name="notify_url" value="https://metal-pears-swim-175-157-52-165.loca.lt/api/orders/pay" />  
+                                            <input type="hidden" name="notify_url" value="https://tender-donkeys-sort-175-157-52-165.loca.lt/api/orders/pay" />  
                                             <input type="hidden" name="order_id" value={order._id} />
                                             <input type="hidden" name="items" value="order" />
                                             <input type="hidden" name="currency" value="LKR" />

@@ -29,7 +29,6 @@ app.use(express.json())
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
