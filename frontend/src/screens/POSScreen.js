@@ -88,6 +88,15 @@ function POSScreen() {
     setCart(newCart);
   }
 
+  const updateDb = () => {
+    cart.map(item => {
+      item.countInStock = item.countInStock - item.quantity
+      delete item.quantity
+      delete item.totalAmount
+      dispatch(updateProduct(item, id))
+    })
+  }
+
   const componentRef = useRef();
 
   const handleReactToPrint = useReactToPrint({
@@ -96,6 +105,7 @@ function POSScreen() {
 
   const handlePrint = () => {
     handleReactToPrint();
+    updateDb();
   }
 
   useEffect(() => {
@@ -111,13 +121,12 @@ function POSScreen() {
   },[cart])
 
 
-
   return (
     <MainLayout>
       <div className='row'>
         <div className='col-lg-8'>
           {isLoading ? 'Loading' : <div className='row'>
-              {products.map((product, key) =>
+              {store.productList.map((product, key) =>
                 <div key={key} className='col-lg-3 mb-4'>
                   <div className='pos-item px-3 text-center border' onClick={() => addProductToCart(product)}>
                       <p>{product.name}</p>
